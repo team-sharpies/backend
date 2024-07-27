@@ -1,0 +1,62 @@
+{"cats": [
+  {
+    "id": "uo",
+    "url": "https://cdn2.thecatapi.com/images/uo.jpg",
+    "width": 700,
+    "height": 523
+  },
+  {
+    "id": "6u3",
+    "url": "https://cdn2.thecatapi.com/images/6u3.jpg",
+    "width": 640,
+    "height": 394
+  },
+  {
+    "id": "9sq",
+    "url": "https://cdn2.thecatapi.com/images/9sq.jpg",
+    "width": 344,
+    "height": 480
+  },
+  {
+    "id": "9tn",
+    "url": "https://cdn2.thecatapi.com/images/9tn.jpg",
+    "width": 500,
+    "height": 333
+  },
+  {
+    "id": "btt",
+    "url": "https://cdn2.thecatapi.com/images/btt.jpg",
+    "width": 640,
+    "height": 360
+  },
+  {
+    "id": "db0",
+    "url": "https://cdn2.thecatapi.com/images/db0.jpg",
+    "width": 500,
+    "height": 333
+  },
+  {
+    "id": "dcj",
+    "url": "https://cdn2.thecatapi.com/images/dcj.jpg",
+    "width": 600,
+    "height": 800
+  },
+  {
+    "id": "dt7",
+    "url": "https://cdn2.thecatapi.com/images/dt7.png",
+    "width": 765,
+    "height": 1024
+  },
+  {
+    "id": "MTY4MjUxMA",
+    "url": "https://cdn2.thecatapi.com/images/MTY4MjUxMA.png",
+    "width": 650,
+    "height": 433
+  },
+  {
+    "id": "MTkzNDI0Mw",
+    "url": "https://cdn2.thecatapi.com/images/MTkzNDI0Mw.jpg",
+    "width": 560,
+    "height": 544
+  }
+]}
