@@ -18,7 +18,7 @@ import fetch from 'node-fetch';
 // to access the key variable
 const apiKey = process.env.API_KEY
 const apiProxy = process.env.PROXY_ENDPOINT
-async function callAzureAI(data: any): Promise<any> {
+export async function callAzureAI(data: any): Promise<any> {
   const response = await fetch(apiProxy, {
     method: 'POST',
     headers: {

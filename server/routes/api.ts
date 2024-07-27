@@ -1,12 +1,32 @@
 import express from 'express'
-import { Welcome } from '../../models/welcome.ts'
+// import { Welcome } from '../../models/welcome.ts'
+import { callAzureAI } from '../../apiClient.ts';
 
 const router = express.Router()
 
 // GET /api/v1/llm/
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    res.json({ statement: 'Welcome to external APIs!' } as Welcome)
+
+    const requestData = {
+      // Your request data here
+      documents: [
+        {
+          language: "en",
+          id: "1",
+          text: "I love programming with TypeScript!"
+        },
+        {
+          language: "en",
+          id: "2",
+          text: "Express is a great framework for building web applications."
+        }
+      ]
+    };
+    const resData = await callAzureAI(requestData)
+
+    res.json(resData)
+    // res.json({ statement: 'Welcome to external APIs!' } as Welcome)
   } catch (err) {
     if (err instanceof Error) {
       res.status(500).send((err as Error).message)
