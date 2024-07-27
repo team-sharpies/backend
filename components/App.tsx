@@ -1,4 +1,4 @@
-import { getWelcome } from '../apiClient.ts'
+import { getWelcome } from '../apiFunction.ts'
 import { useQuery } from '@tanstack/react-query'
 
 function App() {

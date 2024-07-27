@@ -12,7 +12,7 @@ const server = express()
 
 // CORS configuration
 const corsOptions = {
-  origin: 'http://example.com',  // Replace with your frontend origin
+  origin: '*',  // Replace with your frontend origin
   methods: ['GET', 'POST'],      // Allow specific methods
   allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
 };

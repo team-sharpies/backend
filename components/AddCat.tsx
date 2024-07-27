@@ -3,7 +3,7 @@ import { fetchTodos, addTodo } from '../apis/todo.ts'
 import LoadingSnapper from './LoadingSnapper.tsx'
 import { useState } from 'react'
 import { Todo, TodoData } from '../../models/todo.ts'
-import { getCats } from '../apiClient.ts'
+import { getCats } from '../apiFunction.ts'
 
 export default function AddCat() {
   const [cat, setCat] = useState('')

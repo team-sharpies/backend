@@ -1,14 +1,14 @@
-import { getWelcome } from '../apiClient.ts'
+import { fetchStreamedResponse } from '../apiClient.ts'
 import { useQuery } from '@tanstack/react-query'
 
 function App() {
   const {
-    data: welcome,
+    data: apiResponse,
     isPending,
     isError,
   } = useQuery({
-    queryKey: ['welcome'],
-    queryFn: () => getWelcome(),
+    queryKey: ['llm'],
+    queryFn: () => fetchStreamedResponse("What is cheese?"),
   })
 
   if (isPending) {
@@ -19,7 +19,13 @@ function App() {
     return <p>There was an error</p>
   }
 
-  return <h1>{welcome.statement}</h1>
+  return (
+    <>
+<h1 style={{color: 'red'}}>Header</h1>
+  <h2>{apiResponse}</h2>
+    </>
+)
+
 }
 
 export default App
