@@ -1,39 +1,35 @@
-import express from 'express'
-// import { Welcome } from '../../models/welcome.ts'
-import { callAzureAI } from '../../apiClient.ts';
+import express from 'express';
+import { callOpenAI } from '../../apiClient.ts';  // Adjust the import path as necessary
 
-const router = express.Router()
-  //  djsfgkjbd
-// GET /api/v1/llm/
+const router = express.Router();
+
 router.get('/', async (req, res) => {
   try {
+    console.log('Received request at /api/v1');
 
-    const requestData = {
-      // Your request data here
-      documents: [
-        {
-          language: "en",
-          id: "1",
-          text: "I love programming with TypeScript!"
-        },
-        {
-          language: "en",
-          id: "2",
-          text: "Express is a great framework for building web applications."
-        }
-      ]
-    };
-    const resData = await callAzureAI(requestData)
+    const messages = [
+      { role: 'system', content: 'You are a helpful assistant.' },
+      { role: 'user', content: 'Who won the world series in 2020?' },
+      { role: 'assistant', content: 'The Los Angeles Dodgers won the World Series in 2020.' },
+      { role: 'user', content: 'Where was it played?' }
+    ];
 
-    res.json(resData)
-    // res.json({ statement: 'Welcome to external APIs!' } as Welcome)
+    console.log('Calling OpenAI...');
+    const resData = await callOpenAI(messages);
+    console.log('OpenAI response:', resData);
+
+    res.json(resData);
   } catch (err) {
     if (err instanceof Error) {
-      res.status(500).send((err as Error).message)
+      console.error('Error:', err.message);
+      res.status(500).send(err.message);
     } else {
-      res.status(500).send('Something went wrong')
+      console.error('Unknown error');
+      res.status(500).send('Something went wrong');
     }
   }
-})
+});
 
-export default router
+export default router;
+
+
