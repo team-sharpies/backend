@@ -3,7 +3,7 @@ import { Welcome } from '../../models/welcome.ts'
 
 const router = express.Router()
 
-// GET /api/v1/welcome/
+// GET /api/v1/llm/
 router.get('/', (req, res) => {
   try {
     res.json({ statement: 'Welcome to external APIs!' } as Welcome)

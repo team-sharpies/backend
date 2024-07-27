@@ -5,6 +5,7 @@ const serverURL = '/api/v1'
 
 // *** EXAMPLE ***
 export function getApiRes(): Promise<Welcome> {
-  return request.get(`${serverURL}/welcome`).then((response) => response.body)
+  return request.get(`${serverURL}/llm`).then((response) => response.body)
 }
 // ***   ***   ***
+
