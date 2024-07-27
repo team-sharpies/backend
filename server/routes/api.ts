@@ -30,6 +30,45 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.post('/ask', async (req, res) => {
+  try {
+    const { prompt } = req.body;  // Extract the prompt from the request body
+console.log(prompt);
+
+    if (!prompt) {
+      return res.status(400).json({ error: 'Prompt is required' });
+    }
+
+    // Define the messages structure based on the incoming prompt
+    const messages = [
+      { role: 'system', content: 'You are a helpful assistant.' },
+      { role: 'user', content: prompt }
+    ];
+
+    // Call the OpenAI API
+    const responseData = await callOpenAI(messages);
+
+    // Extract relevant information from the response
+    const completion = responseData.choices[0]?.message?.content || 'No response from AI';
+
+    // Return a user-friendly response
+    res.json({
+      response: completion,
+      usage: responseData.usage,
+      id: responseData.id,
+      model: responseData.model,
+    });
+
+  } catch (err) {
+    if (err instanceof Error) {
+      res.status(500).json({ error: err.message });
+    } else {
+      res.status(500).json({ error: 'Something went wrong' });
+    }
+  }
+});
+
+
 export default router;
 
 
